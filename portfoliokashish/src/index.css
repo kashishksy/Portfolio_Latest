@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050816;
+  --color-accent: #8b5cf6;
+  --color-accent2: #22d3ee;
+  --shadow-neon: 0 0 25px rgba(139, 92, 246, 0.6);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
