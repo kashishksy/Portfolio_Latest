@@ -1,0 +1,9 @@
+[build]
+  base = "portfoliokashish"
+  command = "npm install && npm run build"
+  publish = "portfoliokashish/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
