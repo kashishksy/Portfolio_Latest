@@ -1,5 +1,4 @@
 [build]
-  base = "portfoliokashish"
   command = "cd portfoliokashish && npm install && npm run build"
   publish = "portfoliokashish/dist"
 
