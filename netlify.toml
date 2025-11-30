@@ -1,6 +1,6 @@
 [build]
   base = "portfoliokashish"
-  command = "npm install && npm run build"
+  command = "cd portfoliokashish && npm install && npm run build"
   publish = "portfoliokashish/dist"
 
 [[redirects]]
