@@ -1,6 +1,6 @@
-import { FormEvent, useState } from "react";
+import { type FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Linkedin, Send, CheckCircle2, Phone, MapPin } from "lucide-react";
+import { Mail, Linkedin, Send, CheckCircle2 } from "lucide-react";
 
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
