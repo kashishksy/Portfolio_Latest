@@ -12,7 +12,7 @@ interface Role {
 
 const roles: Role[] = [
   {
-    title: "Front-end Developer",
+    title: "Full stack Developer",
     company: "Community of Guardians",
     period: "Jun 2025 – Present",
     type: "Developer",
