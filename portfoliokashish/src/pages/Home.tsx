@@ -23,11 +23,11 @@ const Home = () => {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
         >
-          Building interfaces like{" "}
+         Carefully built interfaces, {" "}
           <span className="bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">
-            game levels
+           crafted for real users.
           </span>
-          — polished, immersive, and tested.
+         
         </motion.h1>
 
         <motion.p
@@ -36,7 +36,7 @@ const Home = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="max-w-xl text-sm text-white/70 sm:text-base"
         >
-          Full-stack engineer with a front-end focus and 5+ years of experience building high-performance web applications, modernizing legacy codebases, and mentoring teams to deliver accessible, data-rich experiences with zero-downtime releases.
+          Full-stack developer specializing in high-quality React interfaces, accessibility, and performance. I build scalable, pixel-perfect UI systems and modernize enterprise applications with a focus on user experience and reliability.
         </motion.p>
 
         <motion.div
