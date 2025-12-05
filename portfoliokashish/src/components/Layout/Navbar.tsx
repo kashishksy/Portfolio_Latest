@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Gamepad2, Mail } from "lucide-react";
+import { Gamepad2, Mail, Menu, X } from "lucide-react";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -11,11 +12,20 @@ const navItems = [
 
 const Navbar = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="border-b border-white/10 bg-black/40 backdrop-blur-md sticky top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group" onClick={closeMobileMenu}>
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent2 shadow-neon transition-transform group-hover:scale-110">
             <Gamepad2 className="h-5 w-5 text-white" />
           </div>
@@ -29,6 +39,7 @@ const Navbar = () => {
           </div>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden gap-6 text-sm font-medium text-white/70 md:flex">
           {navItems.map((item) => (
             <NavLink
@@ -51,14 +62,63 @@ const Navbar = () => {
           ))}
         </nav>
 
+        {/* Desktop Contact Button */}
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent/20 px-4 py-1.5 text-xs font-medium text-accent2 shadow-[0_0_14px_rgba(139,92,246,0.6)] transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/30"
+          className="hidden md:inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent/20 px-4 py-1.5 text-xs font-medium text-accent2 shadow-[0_0_14px_rgba(139,92,246,0.6)] transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/30"
         >
           <Mail className="h-4 w-4" />
-          <span className="hidden sm:inline">Contact</span>
+          Contact
         </Link>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMobileMenu}
+          className="md:hidden inline-flex items-center justify-center rounded-lg border border-white/10 bg-black/60 p-2 text-white/70 transition hover:bg-accent/20 hover:text-accent2"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-black/60 backdrop-blur-md">
+          <nav className="mx-auto max-w-6xl px-4 py-4 space-y-2">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                onClick={closeMobileMenu}
+                className={({ isActive }) =>
+                  [
+                    "block rounded-lg px-4 py-3 text-sm font-medium transition",
+                    isActive
+                      ? "bg-accent/20 text-accent2 border border-accent/50"
+                      : "text-white/70 hover:bg-accent/10 hover:text-accent2",
+                  ].join(" ")
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <Link
+              to="/contact"
+              onClick={closeMobileMenu}
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-accent2 bg-accent/20 border border-accent/50 hover:bg-accent/30 transition"
+            >
+              <span className="flex items-center gap-2">
+                <Mail className="h-4 w-4" />
+                Contact
+              </span>
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
