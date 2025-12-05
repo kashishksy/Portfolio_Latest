@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Zap, Code2, TestTube, Palette } from "lucide-react";
+import profilePhoto from "../assets/profile-photo.jpeg";
 
 const skills = [
   { name: "JavaScript (ES6+)", category: "Frontend" },
@@ -26,7 +27,17 @@ const skills = [
 ];
 
 const timeline = [
-  {
+{
+  year: "2025",
+  title: "Full stack Developer @ Community of Guardians",
+  description: "Building accessible social platform UI, boosting UX metrics by 15-30%",
+},
+{ 
+  year: "2025",
+  title: "Front-end Developer @ Community Outreach Canada",
+  description: "WCAG 2.1 accessibility audits and UX optimization, lifting engagement by 30%",
+},
+{
     year: "2025",
     title: "Post Graduate Certificate",
     description: "Mobile Application Development, Centennial College, Toronto",
@@ -68,20 +79,48 @@ const About = () => {
         <p className="mt-2 text-sm text-white/60">My story, skills, and journey</p>
       </motion.div>
 
-      {/* Story */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.6 }}
-        className="space-y-4 rounded-xl border border-white/10 bg-black/40 p-6 backdrop-blur-sm"
-      >
+      {/* Photo and Story Section */}
+      <div className="grid gap-8 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
+        {/* Photo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="flex justify-center md:justify-start"
+        >
+          <div className="relative w-full max-w-[280px] lg:max-w-[320px] aspect-[3/4]">
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent to-accent2 opacity-20 blur-xl"></div>
+            <div className="relative h-full w-full rounded-2xl border border-white/10 bg-black/60 p-2 backdrop-blur-sm overflow-hidden">
+              <img
+                src={profilePhoto}
+                alt="Kashish Yadav"
+                className="h-full w-full rounded-xl object-cover shadow-[0_0_30px_rgba(139,92,246,0.3)]"
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Story */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="space-y-4 rounded-xl border border-white/10 bg-black/40 p-6 backdrop-blur-sm"
+        >
         <p className="leading-relaxed text-white/80">
-          I&apos;m a <strong className="text-accent2">full-stack engineer with a front-end focus</strong> and 5+ years of experience building high-performance web applications. My journey started in quality assurance at Accenture, where I authored 200+ automated QA scripts and learned to think like a user. This QA foundation shaped how I build: every component is crafted with attention to detail, accessibility, and robustness.
+          I&apos;m a <strong className="text-accent2">full-stack developer</strong> who started out in quality assurance — a beginning that taught me to think in edge cases, user paths, and real-world reliability. Working in the financial sector early in my career, I built automated test suites for some of the world&apos;s most established banking and asset-management organizations. That foundation still shapes how I build today: with care, clarity, and an obsession for user experience.
         </p>
         <p className="leading-relaxed text-white/80">
-          Today, I create immersive React + TypeScript experiences that don&apos;t just look good—they deliver measurable impact. At TCS, my work on 15+ responsive interfaces connected to 25+ RESTful APIs helped win the Global UX Design Awards for 2022. I modernize legacy codebases, mentor teams, and ensure accessible, data-rich experiences with zero-downtime releases.
+          I later moved into large-scale public-sector work in Europe, helping modernize digital platforms used by millions. At TCS, I engineered accessible, responsive interfaces, integrated complex REST APIs, and contributed to award-winning UX initiatives.
         </p>
-      </motion.div>
+        <p className="leading-relaxed text-white/80">
+          Now, I&apos;m part of a mission-driven team building a new kind of social platform — one where people can showcase real-world action toward global sustainability goals. It&apos;s a space where engineering meets impact, and where I get to bring thoughtful, user-centered design to life.
+        </p>
+        <p className="leading-relaxed text-white/80">
+          In every role, my focus stays the same: build interfaces that feel intuitive, perform beautifully, and genuinely make someone&apos;s day easier.
+        </p>
+        </motion.div>
+      </div>
 
       {/* Superpower Highlight */}
       <motion.div
